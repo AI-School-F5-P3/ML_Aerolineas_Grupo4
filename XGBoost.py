@@ -76,7 +76,7 @@ cm = confusion_matrix(y_test, y_test_pred)
 # Imprimir performance report
 print("Model Performance Report")
 print("=================================")
-print("Precisión del modelo: {:.2f}%".format(accuracy * 100))
+print(f"Precisión del modelo: {:.2f}%".format(accuracy * 100))
 print(f"Training Accuracy: {train_accuracy:.4f}")
 print(f"Test Accuracy: {test_accuracy:.4f}")
 print(f"Training Precision: {train_precision:.4f}")
