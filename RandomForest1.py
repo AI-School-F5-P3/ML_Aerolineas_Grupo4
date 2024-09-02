@@ -1,36 +1,16 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_auc_score, roc_curve
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
-
+# Cargar el archivo desde Google Drive
 file_id = "1oKFnhKBtO_-eEYenjplsVJAzbcAOYspq"
 url = f"https://drive.google.com/uc?id={file_id}"
-
 df = pd.read_csv(url)
-# Cargar el dataset
-#df = pd.read_csv('/Users/jyajuber/Factoriaf5/Proyecto4/airline_passenger_satisfaction.csv')
-print(df.head(50))
 
-# Cargar el dataset
-#df = pd.read_csv('/Users/jyajuber/Factoriaf5/Proyecto4/airline_passenger_satisfaction.csv')
-#df.shape
-#df.head(50)
-
-#1. Eliminar columnas irrelevantes
-df = df.drop(columns=['Unnamed: 0', 'id'])
 # Preprocesamiento de datos
+df = df.drop(columns=['Unnamed: 0', 'id'])
 df = df.dropna()  # Eliminar filas con valores faltantes
-print(df.columns)
-
-# 2. Manejo de valores faltantes
-# Para la columna 'Arrival Delay in Minutes', se podría imputar con la media o eliminar los registros con valores faltantes
 df['Arrival Delay in Minutes'] = df['Arrival Delay in Minutes'].fillna(df['Arrival Delay in Minutes'].mean())
 
 # Codificación de variables categóricas
@@ -39,11 +19,11 @@ categorical_columns = df.select_dtypes(include=['object']).columns
 for col in categorical_columns:
     df[col] = le.fit_transform(df[col])
 
-# 4. Separar características (X) y la variable objetivo (y)
+# Separar características (X) y la variable objetivo (y)
 X = df.drop('satisfaction', axis=1)
 y = df['satisfaction']
 
-# 5. Dividir el conjunto de datos en entrenamiento y prueba
+# Dividir el conjunto de datos en entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Escalado de características
@@ -59,6 +39,7 @@ accuracy_list = []
 roc_auc_list = []
 confusion_matrices = []
 feature_importances_list = []
+cv_scores_list = []
 
 # Bucle para entrenar y evaluar el modelo con diferentes números de árboles
 for n_estimators in n_estimators_list:
@@ -67,11 +48,15 @@ for n_estimators in n_estimators_list:
     # Entrenamiento del modelo
     model = RandomForestClassifier(n_estimators=n_estimators, random_state=42)
     model.fit(X_train, y_train)
-
-# Predicciones
+    
+    # Evaluación con Validación Cruzada
+    cv_scores = cross_val_score(model, X_train, y_train, cv=5)
+    cv_scores_list.append(cv_scores)
+    
+    # Predicciones
     y_pred = model.predict(X_test)
     
-# Evaluación del modelo
+    # Evaluación del modelo
     accuracy = accuracy_score(y_test, y_pred)
     roc_auc = roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])
     
@@ -88,7 +73,14 @@ for n_estimators in n_estimators_list:
     print(f"ROC AUC Score: {roc_auc:.4f}")
     print(classification_report(y_test, y_pred))
     
-# # Convertir la lista de importancias a un DataFrame
+    # Evaluación de overfitting
+    train_accuracy = model.score(X_train, y_train)
+    test_accuracy = accuracy_score(y_test, y_pred)
+    print(f"Training Accuracy: {train_accuracy:.4f}")
+    print(f"Testing Accuracy: {test_accuracy:.4f}")
+    print(f"Diferencia (indicación de overfitting): {train_accuracy - test_accuracy:.4f}")
+
+# Convertir la lista de importancias a un DataFrame
 feature_importances_df = pd.DataFrame(feature_importances_list, columns=X.columns)
 
 # Verificar que no hay NaN en el DataFrame antes de calcular la media
