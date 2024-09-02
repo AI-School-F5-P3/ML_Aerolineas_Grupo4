@@ -6,11 +6,22 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_auc_score, roc_curve
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+
+file_id = "1oKFnhKBtO_-eEYenjplsVJAzbcAOYspq"
+url = f"https://drive.google.com/uc?id={file_id}"
+
+df = pd.read_csv(url)
+# Cargar el dataset
+#df = pd.read_csv('/Users/jyajuber/Factoriaf5/Proyecto4/airline_passenger_satisfaction.csv')
+print(df.head(50))
 
 # Cargar el dataset
-df = pd.read_csv('/Users/jyajuber/Factoriaf5/Proyecto4/airline_passenger_satisfaction.csv')
-df.shape
-df.head(50)
+#df = pd.read_csv('/Users/jyajuber/Factoriaf5/Proyecto4/airline_passenger_satisfaction.csv')
+#df.shape
+#df.head(50)
 
 #1. Eliminar columnas irrelevantes
 df = df.drop(columns=['Unnamed: 0', 'id'])
