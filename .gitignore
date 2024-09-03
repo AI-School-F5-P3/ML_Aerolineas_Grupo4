@@ -2,3 +2,5 @@ dataset.csv
 EDA.py
 single_cust_data.csv
 ML_Aerolineas_Grupo4/
+rf_model.joblib
+scaler.pkl
