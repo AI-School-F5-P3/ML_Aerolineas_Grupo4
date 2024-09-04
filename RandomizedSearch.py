@@ -1,4 +1,4 @@
-from Prueba_Random_Forest_Classifier import train_random_forest
+from Random_Forest_Classifier import train_random_forest
 from sklearn.model_selection import RandomizedSearchCV
 import numpy as np
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -9,7 +9,7 @@ X_trainset, X_testset, y_trainset, y_testset, rf_model = train_random_forest()
 # Definir el rango de hiperparámetros a probar en RandomizedSearchCV
 param_dist = {
     'n_estimators': [50, 100, 200, 300],
-    'max_features': ['auto', 'sqrt', 'log2'],
+    'max_features': ['sqrt', 'log2', None],  # Corregido: 'auto' no es válido
     'max_depth': [None, 10, 20, 30, 40],
     'min_samples_split': [2, 5, 10],
     'min_samples_leaf': [1, 2, 4],
@@ -46,4 +46,3 @@ print(confusion_matrix(y_testset, y_pred))
 
 print("\nClassification Report:")
 print(classification_report(y_testset, y_pred))
-

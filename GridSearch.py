@@ -9,7 +9,7 @@ X_trainset, X_testset, y_trainset, y_testset, rf_model = train_random_forest()
 # Definir el rango de hiperparámetros a probar en GridSearchCV
 param_grid = {
     'n_estimators': [50, 100, 200, 300],
-    'max_features': ['auto', 'sqrt', 'log2'],
+    'max_features': ['sqrt', 'log2', None],
     'max_depth': [None, 10, 20, 30, 40],
     'min_samples_split': [2, 5, 10],
     'min_samples_leaf': [1, 2, 4],
