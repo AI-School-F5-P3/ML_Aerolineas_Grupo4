@@ -1,0 +1,17 @@
+Mejores parámetros encontrados: {'n_estimators': 300, 'min_samples_split': 5, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'max_depth': 30, 'bootstrap': False}
+
+Accuracy: 0.9635
+
+Confusion Matrix:
+[[17216   347]
+ [  788 12728]]
+
+Classification Report:
+                         precision    recall  f1-score   support
+
+neutral or dissatisfied       0.96      0.98      0.97     17563
+              satisfied       0.97      0.94      0.96     13516
+
+               accuracy                           0.96     31079
+              macro avg       0.96      0.96      0.96     31079
+           weighted avg       0.96      0.96      0.96     31079
