@@ -25,13 +25,33 @@ def preprocess_data(df):
 
 # Función para cargar el modelo y el scaler
 def load_rf_model_and_scaler():
-    model_path = os.path.join(os.getcwd(), 'random_forest_model.joblib')
-    scaler_path = os.path.join(os.getcwd(), 'scaler.pkl')
-
-    if 'rf_model' not in st.session_state:
+    current_dir = os.getcwd()
+    st.write(f"Current working directory: {current_dir}")
+    
+    model_path = os.path.join(current_dir, 'rf_model.joblib')
+    scaler_path = os.path.join(current_dir, 'scaler.pkl')
+    
+    st.write(f"Looking for model at: {model_path}")
+    st.write(f"Looking for scaler at: {scaler_path}")
+    
+    st.write(f"Files in current directory: {os.listdir(current_dir)}")
+    
+    if os.path.exists(model_path):
+        st.write("Model file found!")
         st.session_state.rf_model = joblib.load(model_path)
+    else:
+        st.error(f"Model file not found at {model_path}")
+    
+    if os.path.exists(scaler_path):
+        st.write("Scaler file found!")
         st.session_state.rf_scaler = joblib.load(scaler_path)
+    else:
+        st.error(f"Scaler file not found at {scaler_path}")
+    
+    if 'rf_model' in st.session_state and 'rf_scaler' in st.session_state:
         st.write("Model and scaler loaded into session state.")
+    else:
+        st.error("Failed to load model and/or scaler.")
 
 def main():
     st.markdown("""
