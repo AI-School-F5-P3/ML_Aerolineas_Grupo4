@@ -10,13 +10,10 @@ import matplotlib.pyplot as plt
 import joblib
 
 
-file_id = "1oKFnhKBtO_-eEYenjplsVJAzbcAOYspq"
-url = f"https://drive.google.com/uc?id={file_id}"
-df = pd.read_csv(url)
+df = pd.read_csv('C:/Users/Administrator/Desktop/Proyecto-Aprendizaje Supervisado,Clasificación/airline_passenger_satisfaction.csv')
 
-# print(df.head())
-#df = pd.read_csv('Dataset/airline_passenger_satisfaction.csv')
 
+print(df.head())
 columns_to_drop = ['id', 'Unnamed: 0']
 df.drop(columns=[col for col in columns_to_drop if col in df.columns], axis=1, inplace=True)
 #Eliminamos columnas espúreas e innecesariaas

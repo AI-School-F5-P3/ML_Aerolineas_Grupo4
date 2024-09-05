@@ -29,7 +29,8 @@ grid_search = GridSearchCV(
 grid_search.fit(X_trainset, y_trainset)
 
 # Imprimir los mejores hiperparámetros encontrados
-print("Mejores parámetros encontrados:", grid_search.best_params_)
+best_params = grid_search.best_params_  # Definir best_params
+print("Mejores parámetros encontrados:", best_params)
 
 # Evaluar el modelo con los mejores hiperparámetros
 best_rf = grid_search.best_estimator_
@@ -37,10 +38,22 @@ y_pred = best_rf.predict(X_testset)
 
 # Calcular e imprimir métricas de rendimiento
 accuracy = accuracy_score(y_testset, y_pred)
+conf_matrix = confusion_matrix(y_testset, y_pred)  # Definir conf_matrix
+class_report = classification_report(y_testset, y_pred)  # Definir class_report
+
 print(f"Accuracy: {accuracy:.4f}")
-
 print("\nConfusion Matrix:")
-print(confusion_matrix(y_testset, y_pred))
-
+print(conf_matrix)
 print("\nClassification Report:")
-print(classification_report(y_testset, y_pred))
+print(class_report)
+
+# Guardar el informe en un archivo de texto
+with open('grid_search_report.txt', 'w') as f:
+    f.write(f"Mejores parámetros encontrados: {best_params}\n\n")
+    f.write(f"Accuracy: {accuracy:.4f}\n\n")
+    f.write("Confusion Matrix:\n")
+    f.write(np.array2string(conf_matrix))
+    f.write("\n\nClassification Report:\n")
+    f.write(class_report)
+
+print("Informe guardado en grid_search_report.txt")

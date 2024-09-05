@@ -31,7 +31,8 @@ random_search = RandomizedSearchCV(
 random_search.fit(X_trainset, y_trainset)
 
 # Imprimir los mejores hiperparámetros encontrados
-print("Mejores parámetros encontrados:", random_search.best_params_)
+best_params = random_search.best_params_
+print("Mejores parámetros encontrados:", best_params)
 
 # Evaluar el modelo con los mejores hiperparámetros
 best_rf = random_search.best_estimator_
@@ -39,10 +40,23 @@ y_pred = best_rf.predict(X_testset)
 
 # Calcular e imprimir métricas de rendimiento
 accuracy = accuracy_score(y_testset, y_pred)
+conf_matrix = confusion_matrix(y_testset, y_pred)  # Asignamos la matriz de confusión
+class_report = classification_report(y_testset, y_pred)  # Asignamos el reporte de clasificación
+
 print(f"Accuracy: {accuracy:.4f}")
-
 print("\nConfusion Matrix:")
-print(confusion_matrix(y_testset, y_pred))
-
+print(conf_matrix)
 print("\nClassification Report:")
+print(class_report)
 print(classification_report(y_testset, y_pred))
+
+# Guardar el informe en un archivo de texto
+with open('random_search_report.txt', 'w') as f:
+    f.write(f"Mejores parámetros encontrados: {best_params}\n\n")
+    f.write(f"Accuracy: {accuracy:.4f}\n\n")
+    f.write("Confusion Matrix:\n")
+    f.write(np.array2string(conf_matrix))
+    f.write("\n\nClassification Report:\n")
+    f.write(class_report)
+
+print("Informe guardado en random_search_report.txt")
