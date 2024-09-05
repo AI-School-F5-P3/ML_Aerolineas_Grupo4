@@ -6,3 +6,4 @@ rf_model.joblib
 scaler.pkl
 docker-commands.txt
 venv/
+rf_app.log

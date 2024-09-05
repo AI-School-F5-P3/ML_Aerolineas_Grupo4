@@ -4,10 +4,19 @@ import streamlit as st
 from sklearn import preprocessing
 import joblib
 import hashlib
+import logging
 
 # Función para hashear una cadena (útil para crear identificadores únicos)
 def hash_string(input_string):
     return hashlib.md5(input_string.encode()).hexdigest()
+
+# Obtener la ruta del directorio del script actual
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Configurar el logging con una ruta absoluta
+log_file_path = os.path.join(script_dir, 'rf_app.log')
+logging.basicConfig(filename=log_file_path, level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Función para preprocesar datos
 def preprocess_data(df):
@@ -26,32 +35,32 @@ def preprocess_data(df):
 # Función para cargar el modelo y el scaler
 def load_rf_model_and_scaler():
     current_dir = os.getcwd()
-    st.write(f"Current working directory: {current_dir}")
+    logging.info(f"Current working directory: {current_dir}")
     
     model_path = os.path.join(current_dir, 'rf_model.joblib')
     scaler_path = os.path.join(current_dir, 'scaler.pkl')
     
-    st.write(f"Looking for model at: {model_path}")
-    st.write(f"Looking for scaler at: {scaler_path}")
+    logging.info(f"Looking for model at: {model_path}")
+    logging.info(f"Looking for scaler at: {scaler_path}")
     
-    st.write(f"Files in current directory: {os.listdir(current_dir)}")
+    logging.info(f"Files in current directory: {os.listdir(current_dir)}")
     
     if os.path.exists(model_path):
-        st.write("Model file found!")
+        logging.info("Model file found!")
         st.session_state.rf_model = joblib.load(model_path)
     else:
-        st.error(f"Model file not found at {model_path}")
+        logging.error(f"Model file not found at {model_path}")
     
     if os.path.exists(scaler_path):
-        st.write("Scaler file found!")
+        logging.info("Scaler file found!")
         st.session_state.rf_scaler = joblib.load(scaler_path)
     else:
-        st.error(f"Scaler file not found at {scaler_path}")
+        logging.error(f"Scaler file not found at {scaler_path}")
     
     if 'rf_model' in st.session_state and 'rf_scaler' in st.session_state:
-        st.write("Model and scaler loaded into session state.")
+        logging.info("Model and scaler loaded into session state.")
     else:
-        st.error("Failed to load model and/or scaler.")
+        logging.error("Failed to load model and/or scaler.")
 
 def main():
     st.markdown("""
