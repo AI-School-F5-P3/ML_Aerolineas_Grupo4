@@ -158,17 +158,22 @@ def main():
         st.write("Datos Registrados:")
         st.write(df)
 
-        # Preprocesar el dataframe
+        # Preprocess the dataframe
         preprocessed_df = preprocess_data(df)
-        normalized_df = scaler.transform(preprocessed_df)
+        
+        # Convert preprocessed DataFrame to numpy array and drop column names
+        preprocessed_array = preprocessed_df.values
+        
+        # Apply scaling
+        normalized_array = scaler.transform(preprocessed_array)
 
-        # Guardar los datos preprocesados en el estado de sesión para su uso en la predicción
-        st.session_state.preprocessed_data = normalized_df
+        # Save the preprocessed data in the session state for use in prediction
+        st.session_state.preprocessed_data = normalized_array
 
-        # Realizar la predicción
-        raw_prediction = rf_model.predict(normalized_df)
+        # Perform the prediction
+        raw_prediction = rf_model.predict(normalized_array)
 
-        # Mostrar los resultados
+        # Show the results
         st.write("Resultados de la Predicción:")
         st.write(f"Interpretación: El cliente probablemente estará: {'Satisfecho' if raw_prediction[0] == 1 else 'No Satisfecho'}.")
 

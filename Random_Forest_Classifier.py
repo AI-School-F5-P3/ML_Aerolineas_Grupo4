@@ -143,5 +143,5 @@ plt.show()
 print("AUC Score:", roc_auc)
 
 # Guardamos el modelo
-joblib.dump(rf, 'random_forest_model.joblib')
+joblib.dump(rf, 'rf_model.joblib')
 joblib.dump(scaler, 'scaler.pkl')
