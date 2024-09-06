@@ -1,0 +1,56 @@
+# Entorno virtual
+venv4/
+.venv/
+env/
+*.pyc
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de datos (si son sensibles o grandes)
+*.csv
+*.xlsx
+*.xls
+
+# Modelos entrenados (si son grandes o quieres que sean reconstruidos)
+models/*.pkl
+
+# Archivos de configuración con información sensible
+*.env
+
+# Archivos de log
+*.log
+
+# Archivos de Jupyter Notebook
+.ipynb_checkpoints
+
+# Directorios específicos de tu proyecto que contienen datos sensibles
+F5_airlines4/data/
+
+# Archivos de IDE
+.vscode/
+.idea/
+
+# Archivos temporales
+*.tmp
+
+# Archivos de caché de Streamlit
+.streamlit/
+
+# Ignorar el dataset específico
+F5_airlines4/data/airline_passenger_satisfaction.csv
+
+# Ignorar todos los archivos CSV en la carpeta data por si acaso
+F5_airlines4/data/*.csv
+
+# Ignorar la carpeta data completa si prefieres que ningún archivo de datos se suba
+# F5_airlines4/data/
+
+# Ignorar cualquier ruta que contenga el nombre del dataset (por si cambia la estructura de carpetas)
+**/airline_passenger_satisfaction.csv
