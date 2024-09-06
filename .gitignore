@@ -20,7 +20,10 @@ __pycache__/
 *.xls
 
 # Modelos entrenados (si son grandes o quieres que sean reconstruidos)
-models/*.pkl
+# Ignorar archivos de modelo grandes
+F5_airlines4/models/RandomForest_model1.pkl
+F5_airlines4/models/GradientBoosting_model1.pkl
+F5_airlines4/models/xgboost_model1.pkl
 
 # Archivos de configuración con información sensible
 *.env
