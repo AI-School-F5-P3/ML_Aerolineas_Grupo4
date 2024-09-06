@@ -59,9 +59,27 @@ La curva ROC refleja la capacidad del modelo para distinguir entre las clases a 
 Un AUC cercano a 1 indica que el modelo tiene una excelente capacidad de discriminación entre las clases "Satisfecho" y "Neutral/Insatisfecho", confirmando la eficacia del modelo para esta tarea.
 
 ## 8. Importancia de Características
-El modelo Random Forest ofrece la capacidad de medir la importancia de las características, que revela cuáles son las variables más influyentes para la clasificación.
 
-Las características más importantes pueden incluir factores como la edad del cliente, la experiencia del servicio, los comentarios recibidos, entre otros. Se recomienda un análisis detallado de la importancia de cada característica para identificar oportunidades de mejora o de ajuste en el modelo.
+El modelo Random Forest no solo ofrece un excelente rendimiento en la clasificación, sino que también permite evaluar la importancia relativa de las diferentes características que influyen en la predicción de la satisfacción del cliente.
+
+A continuación, se presenta un gráfico que muestra las características más importantes y su contribución al rendimiento del modelo:
+
+![Importancia de las Características](file-GNgt63Lo0jPlVUCRoBsKPb9I)
+
+El gráfico anterior revela que las características más importantes para el modelo son:
+
+- **Online Boarding**: 0.16
+- **Inflight wifi service**: 0.14
+- **Type of Travel**: 0.12
+- **Class**: 0.10
+- **Inflight entertainment**: 0.10
+
+Estas características relacionadas con los servicios ofrecidos durante el vuelo, la clase de viaje, y el tipo de viaje son las que más influyen en la predicción de la satisfacción del cliente.
+
+Por otro lado, variables como **Departure Delay in Minutes** y **Gender** tienen una menor importancia, lo que sugiere que el modelo no las utiliza de manera significativa para tomar decisiones.
+
+Este análisis de la importancia de las características proporciona información valiosa para entender cuáles son los factores más críticos que determinan la satisfacción del cliente, lo que podría orientar futuras mejoras en el servicio.
+
 
 ## 9. Conclusiones
 En resumen:
