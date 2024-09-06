@@ -64,7 +64,8 @@ El modelo Random Forest no solo ofrece un excelente rendimiento en la clasificac
 
 A continuación, se presenta un gráfico que muestra las características más importantes y su contribución al rendimiento del modelo:
 
-![Importancia de las Características](file-GNgt63Lo0jPlVUCRoBsKPb9I)
+![image](https://github.com/user-attachments/assets/000f3a65-13f1-4f55-9e0e-adabd38502d0)
+
 
 El gráfico anterior revela que las características más importantes para el modelo son:
 
