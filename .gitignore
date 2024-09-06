@@ -1,8 +1,9 @@
-# Entorno virtual
+# Entornos virtuales
+venv/
 venv4/
 .venv/
 env/
-*.pyc
+.env/
 
 # Archivos de sistema
 .DS_Store
@@ -33,24 +34,29 @@ models/*.pkl
 # Directorios específicos de tu proyecto que contienen datos sensibles
 F5_airlines4/data/
 
-# Archivos de IDE
+# Archivos de IDE y editores de texto
 .vscode/
 .idea/
-
-# Archivos temporales
-*.tmp
+*.swp
+*.swo
 
 # Archivos de caché de Streamlit
 .streamlit/
 
-# Ignorar el dataset específico
-F5_airlines4/data/airline_passenger_satisfaction.csv
+# Archivos temporales
+*.tmp
 
-# Ignorar todos los archivos CSV en la carpeta data por si acaso
-F5_airlines4/data/*.csv
+# Archivos de compilación de Python
+*.pyc
 
-# Ignorar la carpeta data completa si prefieres que ningún archivo de datos se suba
-# F5_airlines4/data/
+# Directorios de distribución
+dist/
+build/
+*.egg-info/
 
-# Ignorar cualquier ruta que contenga el nombre del dataset (por si cambia la estructura de carpetas)
-**/airline_passenger_satisfaction.csv
+# Archivos de respaldo
+*~
+
+# Archivos específicos del proyecto (ajusta según sea necesario)
+# config.ini
+# secrets.json
