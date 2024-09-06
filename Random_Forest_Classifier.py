@@ -142,6 +142,3 @@ plt.show()
 # Muestra AUC score
 print("AUC Score:", roc_auc)
 
-# Guardamos el modelo
-joblib.dump(rf, 'rf_model.joblib')
-joblib.dump(scaler, 'scaler.pkl')
