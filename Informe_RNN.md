@@ -27,7 +27,6 @@ La matriz de confusión resume el rendimiento del modelo de la siguiente manera:
 \end{matrix}
 \]
 
-
 Esto indica que el modelo clasifica correctamente la mayoría de los ejemplos de ambas clases, con una pequeña cantidad de falsos negativos y falsos positivos.
 
 ## 4. Informe de Clasificación
