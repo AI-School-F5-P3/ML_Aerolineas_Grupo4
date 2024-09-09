@@ -19,13 +19,13 @@ Estas métricas muestran que el modelo tiene un rendimiento sólido en términos
 
 La matriz de confusión resume el rendimiento del modelo de la siguiente manera:
 
-\[
+$$
 \begin{matrix}
    & \textbf{Predicción: Satisfecho} & \textbf{Predicción: Neutral o Insatisfecho} \\
 \textbf{Real: Satisfecho} & 17153 & 410 \\
 \textbf{Real: Neutral o Insatisfecho} & 841 & 12675 \\
 \end{matrix}
-\]
+$$
 
 Esto indica que el modelo clasifica correctamente la mayoría de los ejemplos de ambas clases, con una pequeña cantidad de falsos negativos y falsos positivos.
 
