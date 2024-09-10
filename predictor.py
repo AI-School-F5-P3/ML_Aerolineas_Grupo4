@@ -99,7 +99,7 @@ def main():
                     'cleanliness': 3
                 }
 
-            # Create input fields for all features
+            # Creamos los campos
             gender = st.selectbox("Gender", ["Female", "Male"])
             customer_type = st.selectbox("Customer Type", ["Loyal Customer", "Disloyal Customer"])
             age = st.number_input("Age", min_value=0, max_value=120, value=30)
@@ -107,7 +107,7 @@ def main():
             travel_class = st.selectbox("Class", ["Business", "Eco", "Eco Plus"])
             flight_distance = st.number_input("Flight Distance", min_value=0, value=1000)
 
-            # Sliders with session state
+            # Sliders para variables discretas
             st.session_state.slider_values['wifi_service'] = st.slider("Inflight wifi service", 1, 5, st.session_state.slider_values['wifi_service'])
             st.session_state.slider_values['departure_arrival_time'] = st.slider("Departure/Arrival time convenient", 1, 5, st.session_state.slider_values['departure_arrival_time'])
             st.session_state.slider_values['online_booking'] = st.slider("Ease of Online booking", 1, 5, st.session_state.slider_values['online_booking'])
@@ -159,13 +159,13 @@ def main():
                 st.write(df)
                 df.to_csv("Dataset/single_cust_data.csv")
 
-                # Pre-process the dataframe
+                # Pre-procesado del dataframe
 
                 preprocessed_df = preprocess_data(df)
                 normalized_df = rf_scaler.transform(preprocessed_df)
                 normalized_df_nn = nn_scaler.transform(preprocessed_df)
 
-                # Store the preprocessed data in session state for use in prediction
+                # Almacenado para la predicción
                 st.session_state.preprocessed_data = normalized_df
                 st.session_state.preprocessed_data_nn = normalized_df_nn
 
@@ -174,7 +174,7 @@ def main():
                 st.session_state.prediction = raw_prediction[0]
 
                 
-                # Get prediction probabilities from Random Forest
+                # Probabiidades para Random Forest
                 rf_probabilities = rf_model.predict_proba(st.session_state.preprocessed_data)
                 st.session_state.rf_probabilities = rf_probabilities
                 #st.write(f"Predicted probabilities: {st.session_state.rf_probabilities}")
@@ -184,7 +184,7 @@ def main():
                 # Activar la bandera de predicción realizada
                 st.session_state.prediction_made = True
 
-                # Predicción con red neuronal
+                # Predicción con red neuronal, directamente la probabilidad
                 raw_prediction_nn = nn_model.predict(st.session_state.preprocessed_data_nn)
                 nn_probabilities_combined = np.hstack([
                     1 - raw_prediction_nn.reshape(-1, 1),  # Probability of negative class
