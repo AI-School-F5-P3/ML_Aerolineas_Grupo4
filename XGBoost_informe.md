@@ -47,6 +47,8 @@ La alta puntuación AUC indica una excelente capacidad discriminativa entre las 
 
 ## 3. Importancia de Características
 
+![image](https://github.com/user-attachments/assets/79717f71-a7f9-4253-9065-9f879cc46d90)
+
 Las 10 características más importantes para predecir la satisfacción del cliente son:
 
 1. Embarque en línea (0,419225)
