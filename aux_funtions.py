@@ -126,6 +126,16 @@ def classify_values(values):
         
     return classifications
 
+def classify_value(value):
+    classifications = []
+    if abs(value) <= 0.5:
+        classifications.append('neutral or dissatisfied')
+    else:
+        classifications.append('satisfied')
+        
+    return classifications
+
+
 # Función para actualizar el feedback en la base de datos
 def update_feedback(session, user_id, real_satisfaction):
     try:
