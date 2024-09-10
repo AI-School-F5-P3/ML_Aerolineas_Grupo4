@@ -1,6 +1,6 @@
 
 
-### Informe del Rendimiento del Modelo: Clasificador de Red Neuronal
+# Informe del Rendimiento del Modelo: Clasificador de Red Neuronal
 
 ---
 
@@ -15,6 +15,10 @@ Este informe detalla el rendimiento de un modelo de clasificación basado en una
 
 Estas métricas muestran que el modelo tiene un rendimiento sólido en términos de precisión tanto en los datos de entrenamiento como de prueba, con una diferencia mínima que sugiere un ligero sobreajuste.
 
+![imagen](https://github.com/user-attachments/assets/2ff7359c-ff17-4d83-abc4-0f6e97954f6d)
+
+
+
 ## 3. Matriz de Confusión
 
 La matriz de confusión resume el rendimiento del modelo de la siguiente manera:
@@ -26,6 +30,8 @@ $$
 \textbf{Real: Neutral o Insatisfecho} & 841 & 12675 \\
 \end{matrix}
 $$
+
+![imagen](https://github.com/user-attachments/assets/cd31b117-c03f-483a-b05f-cbeae97dc38c)
 
 Esto indica que el modelo clasifica correctamente la mayoría de los ejemplos de ambas clases, con una pequeña cantidad de falsos negativos y falsos positivos.
 
@@ -55,6 +61,15 @@ El modelo está compuesto por una red neuronal secuencial con la siguiente arqui
 Total parámetros: 12,293
 ```
 
-## 6. Conclusiones
+## 6. Gráfica de Pérdida Durante el Entrenamiento
+
+A continuación se muestra la gráfica del loss (pérdida) del modelo durante el proceso de entrenamiento, lo cual permite visualizar el comportamiento del modelo en términos de ajuste:
+
+![imagen](https://github.com/user-attachments/assets/06845d2d-7ae8-4e87-8f86-9bbab6b7e56a)
+
+
+La gráfica muestra cómo la pérdida disminuye durante las iteraciones del entrenamiento, indicando que el modelo está aprendiendo de manera efectiva.
+
+## 7. Conclusiones
 
 El modelo de Red Neuronal muestra un rendimiento excelente en términos de precisión y generalización. La pequeña diferencia entre las métricas de entrenamiento y prueba indica un mínimo sobreajuste. La estructura de la red es relativamente simple, lo cual ha sido suficiente para capturar la complejidad del problema.
