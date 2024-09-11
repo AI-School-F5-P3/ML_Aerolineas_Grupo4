@@ -1,8 +1,8 @@
-# Informe de Optimización de Hiperparámetros con Random Search
+# Informe de Optimización de Hiperparámetros con Random Search: Modelo Random Forest
 
 ## 1. Introducción
 
-Este informe detalla el rendimiento de un modelo de clasificación optimizado mediante Random Search, utilizando un conjunto de datos de satisfacción del cliente. Los mejores parámetros encontrados a través de este proceso se detallan a continuación.
+Este informe detalla el rendimiento de un modelo **Random Forest** optimizado mediante **Random Search** para la predicción de la satisfacción del cliente. A través de Random Search, se encontraron los hiperparámetros más adecuados para mejorar la precisión del modelo.
 
 ## 2. Mejores Parámetros Encontrados
 
@@ -13,7 +13,7 @@ Este informe detalla el rendimiento de un modelo de clasificación optimizado me
 - **Max Depth:** 30
 - **Bootstrap:** False
 
-Random Search identificó estos parámetros como los más efectivos para mejorar el rendimiento del modelo.
+Random Search optimizó estos hiperparámetros para maximizar la precisión del modelo.
 
 ## 3. Rendimiento del Modelo
 
@@ -21,7 +21,7 @@ Random Search identificó estos parámetros como los más efectivos para mejorar
 
 - **Precisión (Accuracy):** 96,35%
 
-El modelo alcanza una precisión del 96,35%, lo que indica un buen rendimiento en la predicción de la satisfacción del cliente.
+El modelo alcanza una precisión del 96,35%, lo que muestra un buen rendimiento en la predicción de la satisfacción del cliente.
 
 ### 3.2 Matriz de Confusión
 
@@ -35,7 +35,7 @@ El modelo alcanza una precisión del 96,35%, lo que indica un buen rendimiento e
 - **Falsos Negativos (Real 1, Predicho 0):** 788
 - **Verdaderos Positivos (Real 1, Predicho 1):** 12.728
 
-La matriz de confusión muestra un rendimiento similar al del modelo optimizado con Grid Search, con una leve tendencia a clasificar erróneamente a clientes satisfechos como neutrales/insatisfechos.
+El modelo clasifica correctamente la mayoría de los casos, con ligeros errores en la predicción de clientes satisfechos.
 
 ### 3.3 Informe de Clasificación
 
@@ -47,12 +47,12 @@ La matriz de confusión muestra un rendimiento similar al del modelo optimizado 
 | **Macro Promedio**        | 0.96      | 0.96   | 0.96     | 31.079  |
 | **Promedio Ponderado**    | 0.96      | 0.96   | 0.96     | 31.079  |
 
-El modelo presenta un rendimiento equilibrado en ambas clases, con alta precisión, recall y puntuación F1.
+El modelo muestra un rendimiento equilibrado en ambas clases.
 
 ## 4. Conclusión
 
-- El modelo optimizado mediante Random Search alcanza una precisión del 96,35%, lo que demuestra un excelente rendimiento general.
-- La matriz de confusión muestra una correcta clasificación en la mayoría de los casos, con una ligera tendencia a errores en la predicción de clientes satisfechos.
-- El informe de clasificación confirma que el modelo tiene un rendimiento consistente y equilibrado en ambas clases.
+- El modelo de **Random Forest** optimizado mediante Random Search ofrece una precisión del 96,35%, lo que indica un buen rendimiento general.
+- Aunque la precisión es levemente menor que la obtenida con Grid Search, sigue siendo altamente competitiva.
+- La matriz de confusión muestra una ligera tendencia a errores en la clasificación de clientes satisfechos, pero el rendimiento global es sólido.
 
-Este informe sugiere que el modelo está bien optimizado y puede ser utilizado en producción para predecir la satisfacción del cliente.
+El modelo optimizado es adecuado para su uso en producción para predecir la satisfacción del cliente.
