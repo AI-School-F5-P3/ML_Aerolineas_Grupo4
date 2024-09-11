@@ -1,0 +1,8 @@
+pandas
+streamlit
+mysql-connector-python==9.0.0
+sqlalchemy
+scikit-learn
+tensorflow
+python-dotenv
+PyMySQL
