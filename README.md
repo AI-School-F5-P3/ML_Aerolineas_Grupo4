@@ -58,7 +58,7 @@ El dataset utilizado contiene información sobre la **satisfacción de los clien
 ### 📂 Descargar Dataset
 Puedes descargar el dataset utilizado en el proyecto desde el siguiente enlace:
 
-[Dataset CSV](./data/airlines_satisfaction.csv)
+[Dataset CSV](./modelos/airline_passenger_satisfaction.csv)
 
 ## 📂 Estructura del Repositorio
 
