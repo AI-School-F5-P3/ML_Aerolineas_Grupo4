@@ -40,6 +40,7 @@ El proyecto tiene como fin desarrollar un modelo de **aprendizaje supervisado** 
 - **Test unitarios** (pendientes de implementación).
 
 ### 💡 Nivel Experto:
+- **Experimentos o despliegues con modelos de redes neuronales** Se ha entrenado un modelo de rede neuronal.
 - **Sistemas de MLOps** pendientes de desarrollo para:
    - Entrenamiento y despliegue automático de nuevas versiones del modelo.
    - **A/B Testing** y monitoreo de **Data Drifting** para asegurar la calidad del modelo antes de reemplazarlo.
