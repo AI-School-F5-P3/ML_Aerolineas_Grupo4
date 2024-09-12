@@ -30,7 +30,7 @@ El proyecto tiene como fin desarrollar un modelo de **aprendizaje supervisado** 
 - **Informe de rendimiento** con métricas como matrices de confusión, curva ROC y análisis de importancia de características.
 
 ### ⚙️ Nivel Medio:
-- Técnicas de **Ensemble** para mejorar el rendimiento del modelo.
+- Técnicas de **Ensemble** entre Random Forest y Red Neuronal para mejorar el rendimiento del modelo.
 - Uso de **Validación Cruzada** y **Optimización de Hiperparámetros** con técnicas como **Grid Search** y **Random Search**.
 - Sistema de **recogida de feedback** y datos para futuros entrenamientos.
 
@@ -40,7 +40,7 @@ El proyecto tiene como fin desarrollar un modelo de **aprendizaje supervisado** 
 - **Test unitarios** (pendientes de implementación).
 
 ### 💡 Nivel Experto:
-- **Experimentos o despliegues con modelos de redes neuronales** Se ha entrenado un modelo de rede neuronal.
+- **Experimentos o despliegues con modelos de redes neuronales** Se ha entrenado un modelo de red neuronal.
 - **Sistemas de MLOps** pendientes de desarrollo para:
    - Entrenamiento y despliegue automático de nuevas versiones del modelo.
    - **A/B Testing** y monitoreo de **Data Drifting** para asegurar la calidad del modelo antes de reemplazarlo.
