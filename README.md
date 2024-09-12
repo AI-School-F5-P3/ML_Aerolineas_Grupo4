@@ -13,6 +13,7 @@ El proyecto tiene como fin desarrollar un modelo de **aprendizaje supervisado** 
 - **Scikit-learn** para el entrenamiento y evaluación del modelo.
 - **Pandas** para la manipulación y limpieza de datos.
 - **Streamlit** para la creación de la aplicación interactiva.
+- **Tensorflow y Keras** para entrenar y utilizar la Red Neuronal.
 - **Git y GitHub** para el control de versiones.
 - **Docker** para contenerizar la aplicación.
 - **Azure** para despliegue de la aplicación y la base de datos.
